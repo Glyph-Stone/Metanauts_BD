@@ -1,18 +1,4 @@
-import requests
-import json
-
-BEARER_TOKEN = "AAAAAAAAAAAAAAAAAAAAAFEAXAEAAAAAhUqhoiVe3mhSime7QbA2wM4IDF8%3DJw78cHulsfKtfUIBubOuM06JoX8gCCU1XHGvo0aosWw9rfMklz"
-
-def search_twitter(query, tweet_fields, bearer_token = BEARER_TOKEN):
-    headers = {"Authorization": "Bearer {}".format(bearer_token)}
-
-    url = "https://api.twitter.com/2/tweets/search/recent?query={}&{}".format(
-        query, tweet_fields
-    )
-    response = requests.request("GET", url, headers=headers)
-
-    print(response.status_code)
-
-    if response.status_code != 200:
-        raise Exception(response.status_code, response.text)
-    return response.json()
+The purpose of the file was to etract hashtags from the twitter api about common cryptocurrancys using there 
+coin symbol sign example $doge $btc $ltc.Then the program would count the times the hashtags were tweeted.
+This information would be used to some with coins are trending the most by home many times the #hashtag was used between 
+a set date
